@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { dbConnect } from "@/db_services/mongo";
+import dbConnect from "@/db_services/mongo";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
