@@ -6,6 +6,6 @@ export async function dbConnect() {
         console.log("Connected to MongoDB");
         return conLink;
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
