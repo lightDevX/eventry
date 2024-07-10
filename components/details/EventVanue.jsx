@@ -10,7 +10,6 @@ const EventVanue = ({ location }) => {
             </div>
             <div className="p-4">
                 <p className="text-[#9C9C9C] text-base mt-1">{location}</p>
-
             </div>
         </div>
     );
