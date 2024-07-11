@@ -1,7 +1,7 @@
-import LoginForm from "@/components/LoginForm";
+import LoginForm from "@/components/auth/LoginForm";
 import Link from "next/link";
 
-const loginPage = () => {
+const LoginPage = () => {
     return (
         <section className="h-screen grid place-items-center">
             <div className="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md">
@@ -21,4 +21,4 @@ const loginPage = () => {
     );
 };
 
-export default loginPage;
+export default LoginPage;
