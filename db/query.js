@@ -18,7 +18,7 @@ async function createUser(user) {
 }
 
 export {
-    getAllEvents,
+    createUser, getAllEvents,
     getEventById
 };
 
