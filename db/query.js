@@ -17,8 +17,13 @@ async function createUser(user) {
     return newUser;
 }
 
+async function foundUserByCredentials(credentials) {
+    const user = await userModel.findOne(credentials).lean();
+    return user;
+}
+
 export {
-    createUser, getAllEvents,
+    createUser, foundUserByCredentials, getAllEvents,
     getEventById
 };
 
