@@ -1,12 +1,13 @@
 'use client'
 
 import { performLogin } from "@/app/actions";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const LoginForm = () => {
 
     const [error, setError] = useState('');
-
+    const formRef = useRef();
+    // contect database for authentication
     async function onSubmit(e) {
         e.preventDefault();
         try {
@@ -14,12 +15,13 @@ const LoginForm = () => {
             await performLogin(formData);
         } catch (err) {
             setError(err.message);
+            formRef.current.reset();
         }
     }
 
     return (
         <>
-            <form className="login-form" onSubmit={onSubmit}>
+            <form className="login-form" onSubmit={onSubmit} ref={formRef}>
                 <div>
                     <label htmlFor="email">Email Address</label>
                     <input type="email" name="email" id="email" />
@@ -36,7 +38,7 @@ const LoginForm = () => {
                 >
                     Login
                 </button>
-                {error && <p className=" text-red-400">{error}</p>}
+                {error && <p className=" text-red-400 mt-4">{error}</p>}
             </form>
         </>
     );
