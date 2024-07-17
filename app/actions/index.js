@@ -20,8 +20,13 @@ async function performLogin(formData) {
     } catch (error) {
         throw error;
     }
+}
+
+
+async function interestedUser(eventId, authId) {
 
 }
+
 
 export {
     performLogin, registerUser
