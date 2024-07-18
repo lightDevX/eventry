@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const { createUser, foundUserByCredentials, updateInterest, } = require("@/db/query");
+const { createUser, foundUserByCredentials, updateInterest, updateGoing } = require("@/db/query");
 
 
 async function registerUser(formData) {
@@ -35,6 +35,15 @@ async function addInterestedEvent(eventId, authId) {
     revalidatePath('/');
 }
 
+async function addGoingEvent(eventId, user) {
+    try {
+        await updateGoing(eventId, user?.id);
+    } catch (error) {
+        throw error;
+    }
+    revalidatePath('/');
+    redirect('/');
+}
 
-export { addInterestedEvent, performLogin, registerUser };
+export { addGoingEvent, addInterestedEvent, performLogin, registerUser };
 
